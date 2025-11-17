@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Id": "AWSLogDeliveryWrite20150319",
+    "Statement": [
+        {
+            "Sid": "AWSLogDeliveryWrite1",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "delivery.logs.amazonaws.com"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::lambda-stcoks-data/AWSLogs/023394150895/EventBusLogs/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "023394150895",
+                    "s3:x-amz-acl": "bucket-owner-full-control"
+                },
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:logs:us-east-1:023394150895:delivery-source:EventBusSource-Lambda-event-ERROR_LOGS"
+                }
+            }
+        }
+    ]
+}
