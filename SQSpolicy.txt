@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Id": "S3EventPermission",
+  "Statement": [
+    {
+      "Sid": "AllowS3SendMessage",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "s3.amazonaws.com"
+      },
+      "Action": "sqs:SendMessage",
+      "Resource": "arn:aws:sqs:us-east-1:023394150895:Hamza",
+      "Condition": {
+        "ArnEquals": {
+          "aws:SourceArn": "arn:aws:s3:::lambda-stcoks-data"
+        }
+      }
