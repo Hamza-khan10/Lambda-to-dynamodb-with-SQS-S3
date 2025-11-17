@@ -1,1 +1,1 @@
-# Lambda-to-dynamodb-SQS-S3
+# Lambda-to-dynamodb-with-SQS-S3
